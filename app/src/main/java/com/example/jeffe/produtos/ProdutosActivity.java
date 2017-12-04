@@ -145,13 +145,18 @@ public class ProdutosActivity extends Activity implements
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id){
-            case R.id.action_cadastrar_usuario:
+            case R.id.action_cadastrar_produto:
                 Intent intent = new Intent(this, CadProdutoActivity.class);
                 intent.putExtra("EMP_LOGADA", empresa);
                 startActivity(intent);
                 break;
             case R.id.action_trocar_empresa:
                 finish();
+                break;
+
+            case R.id.action_cadastrar_empresa:
+                Intent intent2 = new Intent(this, EmpresasActivity.class);
+                startActivity(intent2);
                 break;
         }
         return super.onOptionsItemSelected(item);

@@ -65,19 +65,19 @@ public class EmpresasActivity extends Activity implements
     //Menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_add, menu);
+        getMenuInflater().inflate(R.menu.menu_empresas, menu);
         return true;
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id){
-            case R.id.action_cadastrar_usuario:
+            case R.id.action_cadastrar:
                 Intent intent = new Intent(this, CadEmpresaActivity.class);
                 intent.putExtra("EMP_LOGADA", empresa);
                 startActivity(intent);
                 break;
-            case R.id.action_trocar_empresa:
+            case R.id.action_cancelar:
                 finish();
                 break;
         }
