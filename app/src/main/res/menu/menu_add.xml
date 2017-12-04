@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_cadastrar_usuario"
+        android:title="@string/cadastrarProd"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom|withText"
+        android:icon="@drawable/ic_action_new"/>
+
+    <item android:id="@+id/action_trocar_empresa"
+        android:title="@string/trocar_empresa"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom|withText"
+        android:icon="@drawable/ic_action_new"/>
+</menu>

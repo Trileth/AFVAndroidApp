@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@+id/listaProdutos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/btnProxPag"
+                android:headerDividersEnabled="false"
+                android:scrollbars="vertical">
+
+            </ListView>
+
+            <Button
+                android:id="@+id/btnBuscar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:onClick="onBuscarClick"
+                android:text="@string/Buscar" />
+
+            <Spinner
+                android:id="@+id/produto_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/btnBuscar"
+                android:layout_alignBottom="@+id/btnBuscar"
+                android:layout_toStartOf="@+id/btnBuscar" />
+
+            <EditText
+                android:id="@+id/edtBuscaProduto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/btnBuscar"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="#283593"
+                tools:layout_editor_absoluteX="59dp"
+                tools:layout_editor_absoluteY="134dp" />
+
+            <Button
+                android:id="@+id/btnProxPag"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/edtBuscaProduto"
+                android:background="@drawable/ic_keyboard_arrow_right_black_36dp"
+                android:onClick="onProximoClick"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btnVoltarPag"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edtBuscaProduto"
+                android:layout_toStartOf="@+id/btnProxPag"
+                android:background="@drawable/ic_keyboard_arrow_left_black_36dp"
+                android:onClick="onAnteriorClick"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/txtNumPag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/btnVoltarPag"
+                android:layout_alignBottom="@+id/btnVoltarPag"
+                android:layout_alignParentStart="true"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
