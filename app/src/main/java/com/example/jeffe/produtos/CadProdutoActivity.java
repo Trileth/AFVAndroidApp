@@ -88,7 +88,7 @@ public class CadProdutoActivity extends Activity {
             Bundle bundle = new Bundle();
             bundle.putInt("produtoEmp", empresa );
             bundle.putString("produtoDesc",descricao);
-            bundle.putInt("produtoGrupo", grupoSelecionado.get_id());
+            bundle.putInt("produtoGrupo", grupoSelecionado.getId());
             bundle.putInt("produtoId", idproduto);
             bundle.putString("produtoSit", situacao);
             Intent intent = new Intent(this, CadProduto2Activity.class);

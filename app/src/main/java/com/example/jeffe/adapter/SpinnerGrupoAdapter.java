@@ -39,7 +39,7 @@ public class SpinnerGrupoAdapter extends ArrayAdapter<GrupoProduto> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         TextView label = new TextView(context);
-        label.setText(lista[position].get_id()+" - "+lista[position].getDescricao());
+        label.setText(lista[position].getId()+" - "+lista[position].getDescricao());
         return label;
     }
 
@@ -47,7 +47,7 @@ public class SpinnerGrupoAdapter extends ArrayAdapter<GrupoProduto> {
     public View getDropDownView(int position, View convertView,
                                 ViewGroup parent) {
         TextView label = new TextView(context);
-        label.setText(lista[position].get_id()+" - "+lista[position].getDescricao());
+        label.setText(lista[position].getId()+" - "+lista[position].getDescricao());
 
         return label;
     }

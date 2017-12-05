@@ -61,9 +61,9 @@ public class EmpresaDAO {
 
     public long salvarEmpresa(Empresa empresa){
         ContentValues valores = new ContentValues();
-        valores.put(DatabaseHelper.Empresas._ID, empresa.get_id());
-        valores.put(DatabaseHelper.Empresas.NOME_FANTASIA, empresa.getNome_fantasia());
-        valores.put(DatabaseHelper.Empresas.RAZAO_SOCIAL, empresa.getRazao_social());
+        valores.put(DatabaseHelper.Empresas._ID, empresa.getId());
+        valores.put(DatabaseHelper.Empresas.NOME_FANTASIA, empresa.getNomeFantasia());
+        valores.put(DatabaseHelper.Empresas.RAZAO_SOCIAL, empresa.getRazaoSocial());
         valores.put(DatabaseHelper.Empresas.IE, empresa.getIe());
         valores.put(DatabaseHelper.Empresas.CNPJ, empresa.getCnpj());
         valores.put(DatabaseHelper.Empresas.FAX, empresa.getFax());
@@ -75,9 +75,9 @@ public class EmpresaDAO {
 
 
 
-        if(empresa.get_id() != null){
+        if(empresa.getId() != null){
             return database.update(DatabaseHelper.Empresas.TABELA, valores,
-                    "cod_empresa = ?", new String[]{ empresa.get_id().toString()} );
+                    "cod_empresa = ?", new String[]{ empresa.getId().toString()} );
         }
 
         return getDatabase().insert(DatabaseHelper.Empresas.TABELA,null, valores);

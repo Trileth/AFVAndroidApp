@@ -52,11 +52,11 @@ public class TipoComplementoDAO {
 
     public long salvarTipoComplemento(TipoComplemento tiposcomplementos){
         ContentValues valores = new ContentValues();
-        valores.put(DatabaseHelper.TiposComplementos._ID, tiposcomplementos.get_id());
+        valores.put(DatabaseHelper.TiposComplementos._ID, tiposcomplementos.getId());
 
-        if(tiposcomplementos.get_id() != null){
+        if(tiposcomplementos.getId() != null){
             return database.update(DatabaseHelper.TiposComplementos.TABELA, valores,
-                    "_id = ?", new String[]{ tiposcomplementos.get_id().toString()} );
+                    "_id = ?", new String[]{ tiposcomplementos.getId().toString()} );
         }
 
         return getDatabase().insert(DatabaseHelper.TiposComplementos.TABELA,null, valores);

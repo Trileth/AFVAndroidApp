@@ -1,24 +1,24 @@
 package com.example.jeffe.model;
 
 public class GrupoProduto {
-    private Integer  _id         ;
+    private Integer id;
     private String   descricao   ;
-    private Double   perc_desc   ;
+    private Double percDesc;
     private Integer  complemento ;
 
-    public GrupoProduto(Integer id,String descricao,Double perc_desc,Integer  complemento){
-        this._id          =  id         ;
+    public GrupoProduto(Integer id, String descricao, Double percDesc, Integer  complemento){
+        this.id =  id         ;
         this.descricao    =  descricao   ;
-        this.perc_desc    =  perc_desc   ;
+        this.percDesc = percDesc;
         this.complemento  =  complemento ;
     }
 
-    public Integer get_id() {
-        return _id;
+    public Integer getId() {
+        return id;
     }
 
-    public void set_id(Integer _id) {
-        this._id = _id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getDescricao() {
@@ -29,12 +29,12 @@ public class GrupoProduto {
         this.descricao = descricao;
     }
 
-    public Double getPerc_desc() {
-        return perc_desc;
+    public Double getPercDesc() {
+        return percDesc;
     }
 
-    public void setPerc_desc(Double perc_desc) {
-        this.perc_desc = perc_desc;
+    public void setPercDesc(Double percDesc) {
+        this.percDesc = percDesc;
     }
 
     public Integer getComplemento() {

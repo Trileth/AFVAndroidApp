@@ -86,7 +86,7 @@ public class EmpresasActivity extends Activity implements
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
-        int id = empresaList.get(idposicao).get_id();
+        int id = empresaList.get(idposicao).getId();
         switch (which){
             case 0:
                 Intent intent = new Intent(this, CadEmpresaActivity.class);

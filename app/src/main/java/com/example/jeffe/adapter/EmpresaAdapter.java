@@ -50,7 +50,7 @@ public class EmpresaAdapter extends BaseAdapter {
         }
 
         TextView txtNome = view.findViewById(R.id.empresa_lista_nome);
-        txtNome.setText("Razão Social: "+empresa.getRazao_social());
+        txtNome.setText("Razão Social: "+empresa.getRazaoSocial());
         TextView txtApelido = view.findViewById(R.id.empresa_lista_cidade);
         txtApelido.setText("Cidade: "+empresa.getCidade());
 

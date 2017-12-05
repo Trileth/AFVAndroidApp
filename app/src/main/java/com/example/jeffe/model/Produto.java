@@ -2,14 +2,14 @@ package com.example.jeffe.model;
 
 
 public class Produto {
-    private Integer _id;
+    private Integer id;
     private Integer empresa;
     private Integer grupo;
     private Integer subgrupo;
     private String  descricao;
     private String  apelido;
     private String  situacao;
-    private Double  peso_liquido;
+    private Double  pesoLiquido;
     private String  classificacao;
     private String  gtin;
     private String  colecao;
@@ -19,27 +19,27 @@ public class Produto {
     }
 
     public Produto(Integer id,Integer empresa,Integer grupo,Integer subgrupo,String  descricao,
-                   String  apelido,String  situacao,Double  peso_liquido,String  classificacao,
+                   String  apelido,String  situacao,Double  pesoLiquido,String  classificacao,
                    String  gtin,String  colecao){
-       this._id =  id;
+       this.id =  id;
        this.empresa =  empresa;
        this.grupo =  grupo;
        this.subgrupo =  subgrupo;
        this.descricao =  descricao;
        this.apelido =  apelido;
        this.situacao =  situacao;
-       this.peso_liquido =  peso_liquido;
+       this.pesoLiquido =  pesoLiquido;
        this.classificacao =  classificacao;
        this.gtin =  gtin;
        this.colecao =  colecao;
     }
 
     public Integer getId() {
-        return _id;
+        return id;
     }
 
-    public void set_id(Integer _id) {
-        this._id = _id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getEmpresa() {
@@ -91,11 +91,11 @@ public class Produto {
     }
 
     public Double getPeso_liquido() {
-        return peso_liquido;
+        return pesoLiquido;
     }
 
     public void setPeso_liquido(Double peso_liquido) {
-        this.peso_liquido = peso_liquido;
+        this.pesoLiquido = peso_liquido;
     }
 
     public String getClassificacao() {

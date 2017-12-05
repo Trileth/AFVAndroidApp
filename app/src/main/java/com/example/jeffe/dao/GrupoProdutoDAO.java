@@ -54,11 +54,11 @@ public class GrupoProdutoDAO {
 
     public long salvarGrupoProduto(GrupoProduto gruposprodutos){
         ContentValues valores = new ContentValues();
-        valores.put(DatabaseHelper.GruposProdutos._ID, gruposprodutos.get_id());
+        valores.put(DatabaseHelper.GruposProdutos._ID, gruposprodutos.getId());
 
-        if(gruposprodutos.get_id() != null){
+        if(gruposprodutos.getId() != null){
             return database.update(DatabaseHelper.GruposProdutos.TABELA, valores,
-                    "_id = ?", new String[]{ gruposprodutos.get_id().toString()} );
+                    "_id = ?", new String[]{ gruposprodutos.getId().toString()} );
         }
 
         return getDatabase().insert(DatabaseHelper.GruposProdutos.TABELA,null, valores);

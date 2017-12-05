@@ -109,13 +109,13 @@ public class CadProduto2Activity extends Activity {
         String peso =  edtPeso.getText().toString();
         String classificacao = edtClassificacao.getText().toString();
         produto = new Produto();
-        produto.set_id(idproduto);
+        produto.setId(idproduto);
         produto.setDescricao(descricao);
         produto.setGrupo(grupo);
         produto.setEmpresa(empresa);
         produto.setSituacao(situacao);
         produto.setApelido(apelido);
-        produto.setSubgrupo(subgrupoSelecionado.get_id());
+        produto.setSubgrupo(subgrupoSelecionado.getId());
         produto.setPeso_liquido(Double.valueOf(peso));
         produto.setClassificacao(classificacao);
         return produto;

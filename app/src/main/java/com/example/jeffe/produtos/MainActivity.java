@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
         getWindow().setExitTransition(new Explode());
         Empresa empresaSelecionada = (Empresa) spinner.getSelectedItem();
         Intent intent = new Intent(this, ProdutosActivity.class);
-        intent.putExtra("emp",empresaSelecionada.get_id());
+        intent.putExtra("emp",empresaSelecionada.getId());
         startActivity(intent,
                 ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
     }

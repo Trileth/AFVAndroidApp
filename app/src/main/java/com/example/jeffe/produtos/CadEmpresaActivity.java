@@ -70,8 +70,8 @@ public class CadEmpresaActivity extends Activity {
         idempresa = getIntent().getIntExtra("EMPRESA_ID", 0);
         if(idempresa > 0){
             Empresa model = empresaDAO.buscarEmpresaPorId(idempresa);
-            edtRazao.setText(model.getRazao_social());
-            edtFantasia.setText(model.getNome_fantasia());
+            edtRazao.setText(model.getRazaoSocial());
+            edtFantasia.setText(model.getNomeFantasia());
             edtCNPJ.setText(model.getCnpj());
             edtIe.setText(model.getIe());
             edtTelefone.setText(model.getTelefone());
@@ -142,8 +142,8 @@ public class CadEmpresaActivity extends Activity {
         
         if(validacao(razao, fantasia, cnpj, ie, telefone, numCep, endereco, bairro,  cidade  )){
             Empresa empresa = new Empresa();
-            empresa.setRazao_social(razao);
-            empresa.setNome_fantasia(fantasia);
+            empresa.setRazaoSocial(razao);
+            empresa.setNomeFantasia(fantasia);
             empresa.setIe(ie);
             empresa.setCnpj(cnpj);
             empresa.setTelefone(telefone);
@@ -155,7 +155,7 @@ public class CadEmpresaActivity extends Activity {
 
             //Se for atualizar
             if(idempresa > 0){
-                empresa.set_id(idempresa);
+                empresa.setId(idempresa);
             }
 
             long resultado = empresaDAO.salvarEmpresa(empresa);

@@ -39,7 +39,7 @@ public class SpinnerEmpresaAdapter extends ArrayAdapter<Empresa> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         TextView label = new TextView(context);
-        label.setText(lista[position].getRazao_social()+" - "+lista[position].getCidade());
+        label.setText(lista[position].getRazaoSocial()+" - "+lista[position].getCidade());
         return label;
     }
 
@@ -47,7 +47,7 @@ public class SpinnerEmpresaAdapter extends ArrayAdapter<Empresa> {
     public View getDropDownView(int position, View convertView,
                                 ViewGroup parent) {
         TextView label = new TextView(context);
-        label.setText(lista[position].getRazao_social()+" - "+lista[position].getCidade());
+        label.setText(lista[position].getRazaoSocial()+" - "+lista[position].getCidade());
 
         return label;
     }
