@@ -125,12 +125,18 @@ public class ProdutosActivity extends Activity implements
 
     private void validaBotoes() {
         if(pagina <= 0) {
-            btnAnte.setVisibility(View.INVISIBLE); }
+            btnAnte.setVisibility(View.INVISIBLE);
+        }
         else {
-            btnAnte.setVisibility(View.VISIBLE); }
+            btnAnte.setVisibility(View.VISIBLE);
+        }
 
-        if ((qntdProdutosTotal/(pagina + 1)) < (pagina+1)) { btnProx.setVisibility(View.INVISIBLE); }
-        else { btnProx.setVisibility(View.VISIBLE); }
+        if ((qntdProdutosTotal) < (pagina+1)*5) {
+            btnProx.setVisibility(View.INVISIBLE);
+        }
+        else {
+            btnProx.setVisibility(View.VISIBLE);
+        }
 
         txtPag.setText("Página: "+String.valueOf(pagina+1));
     }
@@ -165,7 +171,7 @@ public class ProdutosActivity extends Activity implements
 
     @Override
     public void onClick(DialogInterface dialog, int which) {
-        int id = produtoList.get(idposicao).get_id();
+        int id = produtoList.get(idposicao).getId();
         switch (which){
             case 0:
                 Intent intent = new Intent(this, CadProdutoActivity.class);

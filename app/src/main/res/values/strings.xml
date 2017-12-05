@@ -13,6 +13,7 @@
     </string-array>
     <string name="title_activity_cadprodutos1">Cadastro de Produto</string>
     <string name="title_activity_cadprodutos2">Cadastro de Produto</string>
+    <string name="cep_invalido">CEP Inválido!</string>
 
     <!-- Strings related to Settings -->
 

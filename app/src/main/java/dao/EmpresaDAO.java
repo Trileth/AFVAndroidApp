@@ -59,25 +59,21 @@ public class EmpresaDAO {
         return empresas;
     }
 
-    public List<String> listarRazaoSocial() {
-        Cursor cursor = getDatabase().query(DatabaseHelper.Empresas.TABELA,
-                new String[]{DatabaseHelper.Empresas.RAZAO_SOCIAL,DatabaseHelper.Empresas.CIDADE}, null,
-                null, null, null, null, null
-        );
-
-        List<String> empresas = new ArrayList<>();
-        while (cursor.moveToNext()){
-            empresas.add(cursor.getString(cursor.getColumnIndex(DatabaseHelper.Empresas.RAZAO_SOCIAL))+","+
-                         cursor.getString(cursor.getColumnIndex(DatabaseHelper.Empresas.CIDADE)));
-        }
-
-        cursor.close();
-        return empresas;
-    }
-
     public long salvarEmpresa(Empresa empresa){
         ContentValues valores = new ContentValues();
+        valores.put(DatabaseHelper.Empresas._ID, empresa.get_id());
+        valores.put(DatabaseHelper.Empresas.NOME_FANTASIA, empresa.getNome_fantasia());
+        valores.put(DatabaseHelper.Empresas.RAZAO_SOCIAL, empresa.getRazao_social());
+        valores.put(DatabaseHelper.Empresas.IE, empresa.getIe());
+        valores.put(DatabaseHelper.Empresas.CNPJ, empresa.getCnpj());
+        valores.put(DatabaseHelper.Empresas.FAX, empresa.getFax());
+        valores.put(DatabaseHelper.Empresas.TELEFONE, empresa.getTelefone());
+        valores.put(DatabaseHelper.Empresas.CEP, empresa.getCep());
+        valores.put(DatabaseHelper.Empresas.ENDERECO, empresa.getEndereco());
         valores.put(DatabaseHelper.Empresas.BAIRRO, empresa.getBairro());
+        valores.put(DatabaseHelper.Empresas.CIDADE, empresa.getCidade());
+
+
 
         if(empresa.get_id() != null){
             return database.update(DatabaseHelper.Empresas.TABELA, valores,

@@ -34,7 +34,7 @@ public class Produto {
        this.colecao =  colecao;
     }
 
-    public Integer get_id() {
+    public Integer getId() {
         return _id;
     }
 

@@ -21,7 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                 "    nome_fantasia   varchar (30)               not null," +
                 "    razao_social    varchar (50)               not null," +
                 "    endereco        varchar (50)               not null," +
-                "    bairro          varchar (30)               not null," +
+                "    bairro          varchar (50)               not null," +
                 "    cidade          varchar (50)               not null," +
                 "    cep             varchar (10)               not null," +
                 "    telefone        varchar (15)               not null," +

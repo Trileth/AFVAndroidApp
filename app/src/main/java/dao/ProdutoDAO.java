@@ -65,7 +65,7 @@ public class ProdutoDAO {
                 new String[]{String.valueOf(emp)},null,null,ordem, limite
         );
 
-        List<Produto> produtos = new ArrayList<Produto>();
+        List<Produto> produtos = new ArrayList<>();
         while(cursor.moveToNext()){
             Produto model = criarProduto(cursor);
             produtos.add(model);
@@ -112,9 +112,9 @@ public class ProdutoDAO {
         valores.put(DatabaseHelper.Produtos.PESO_LIQUIDO, produto.getPeso_liquido());
         valores.put(DatabaseHelper.Produtos.CLASSIFICACAO, produto.getClassificacao());
 
-        if(produto.get_id() > 0){
+        if(produto.getId() > 0){
             return database.update(DatabaseHelper.Produtos.TABELA, valores,
-                    "cod_produto = ?", new String[]{ produto.get_id().toString()} );
+                    "cod_produto = ?", new String[]{ produto.getId().toString()} );
         }
 
         return getDatabase().insert(DatabaseHelper.Produtos.TABELA,null, valores);
