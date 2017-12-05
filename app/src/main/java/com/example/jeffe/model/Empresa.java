@@ -1,4 +1,4 @@
-package model;
+package com.example.jeffe.model;
 
 public class Empresa {
     private Integer _id;

@@ -1,4 +1,4 @@
-package dao;
+package com.example.jeffe.dao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteOpenHelper;

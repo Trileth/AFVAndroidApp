@@ -11,12 +11,12 @@ import android.widget.Spinner;
 
 import java.util.List;
 
-import adapter.SpinnerGrupoAdapter;
-import dao.GrupoProdutoDAO;
-import dao.ProdutoDAO;
-import model.GrupoProduto;
-import model.Produto;
-import util.Mensagem;
+import com.example.jeffe.adapter.SpinnerGrupoAdapter;
+import com.example.jeffe.dao.GrupoProdutoDAO;
+import com.example.jeffe.dao.ProdutoDAO;
+import com.example.jeffe.model.GrupoProduto;
+import com.example.jeffe.model.Produto;
+import com.example.jeffe.util.Mensagem;
 
 
 public class CadProduto2Activity extends Activity {

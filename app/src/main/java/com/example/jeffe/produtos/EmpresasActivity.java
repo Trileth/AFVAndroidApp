@@ -15,10 +15,10 @@ import android.widget.ListView;
 
 import java.util.List;
 
-import adapter.EmpresaAdapter;
-import dao.EmpresaDAO;
-import model.Empresa;
-import util.Mensagem;
+import com.example.jeffe.adapter.EmpresaAdapter;
+import com.example.jeffe.dao.EmpresaDAO;
+import com.example.jeffe.model.Empresa;
+import com.example.jeffe.util.Mensagem;
 
 public class EmpresasActivity extends Activity implements
         AdapterView.OnItemClickListener, DialogInterface.OnClickListener {
@@ -45,7 +45,7 @@ public class EmpresasActivity extends Activity implements
         carregaListaEmpresas();
     }
 
-    private void carregaListaEmpresas(){
+    public void carregaListaEmpresas(){
         empresaDAO     = new EmpresaDAO(this);;
 
         empresa = getIntent().getIntExtra("emp",1);
@@ -92,6 +92,7 @@ public class EmpresasActivity extends Activity implements
                 Intent intent = new Intent(this, CadEmpresaActivity.class);
                 intent.putExtra("EMPRESA_ID", id);
                 startActivity(intent);
+                finish();
                 break;
             case 1:
                 alertConfirmacao.show();

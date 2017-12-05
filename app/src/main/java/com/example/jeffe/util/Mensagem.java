@@ -1,4 +1,4 @@
-package util;
+package com.example.jeffe.util;
 
 import android.app.Activity;
 import android.app.AlertDialog;

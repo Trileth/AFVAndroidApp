@@ -1,4 +1,4 @@
-package adapter;
+package com.example.jeffe.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,7 +12,7 @@ import com.example.jeffe.produtos.R;
 
 import java.util.List;
 
-import model.Empresa;
+import com.example.jeffe.model.Empresa;
 
 
 public class EmpresaAdapter extends BaseAdapter {

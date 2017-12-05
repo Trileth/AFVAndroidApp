@@ -18,10 +18,10 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import adapter.ProdutoAdapter;
-import dao.ProdutoDAO;
-import model.Produto;
-import util.Mensagem;
+import com.example.jeffe.adapter.ProdutoAdapter;
+import com.example.jeffe.dao.ProdutoDAO;
+import com.example.jeffe.model.Produto;
+import com.example.jeffe.util.Mensagem;
 
 public class ProdutosActivity extends Activity implements
         AdapterView.OnItemClickListener, DialogInterface.OnClickListener {
@@ -76,6 +76,18 @@ public class ProdutosActivity extends Activity implements
         });
     }
 
+    public void onBuscarClick(View view) {
+       buscaProdutos();
+    }
+
+    private void buscaProdutos(){
+        TextView edtBusca = findViewById(R.id.edtBuscaProduto);
+        Spinner spnOrdem = findViewById(R.id.produto_spinner);
+        int position = spnOrdem.getSelectedItemPosition();
+        String texto = edtBusca.getText().toString();
+        carregaListaProdutos(position, texto);
+    }
+
     private void carregaListaProdutos(int order, String busca){
         produtoDAO     = new ProdutoDAO(this);
         String ordem = "";
@@ -88,26 +100,13 @@ public class ProdutosActivity extends Activity implements
         qntdProdutosTotal = produtoDAO.contarProdutos(empresa,busca);
         ProdutoAdapter produtoAdapter = new ProdutoAdapter(this, produtoList);
 
-        if(produtoList.size() > 0) {
-            lista = findViewById(R.id.listaProdutos);
-            lista.setAdapter(produtoAdapter);
-            lista.setOnItemClickListener(this);
-        } else {
+        lista = findViewById(R.id.listaProdutos);
+        lista.setAdapter(produtoAdapter);
+        lista.setOnItemClickListener(this);
+        if(produtoList.size() < 1) {
             Mensagem.Msg(this, getString(R.string.mensagem_nada_encontrado));
         }
         validaBotoes();
-    }
-
-    public void onBuscarClick(View view) {
-       buscaProdutos();
-    }
-
-    private void buscaProdutos(){
-        TextView edtBusca = findViewById(R.id.edtBuscaProduto);
-        Spinner spnOrdem = findViewById(R.id.produto_spinner);
-        int position = spnOrdem.getSelectedItemPosition();
-        String texto = edtBusca.getText().toString();
-        carregaListaProdutos(position, texto);
     }
 
     public void onProximoClick(View view){

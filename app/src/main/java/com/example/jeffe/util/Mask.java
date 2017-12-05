@@ -1,4 +1,4 @@
-package util;
+package com.example.jeffe.util;
 
 import android.text.Editable;
 import android.text.TextWatcher;

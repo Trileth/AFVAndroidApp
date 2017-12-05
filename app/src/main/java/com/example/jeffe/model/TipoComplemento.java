@@ -1,4 +1,4 @@
-package model;
+package com.example.jeffe.model;
 
 public class TipoComplemento {
     private Integer _id;

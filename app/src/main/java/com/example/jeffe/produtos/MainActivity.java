@@ -12,9 +12,9 @@ import android.widget.Spinner;
 
 import java.util.List;
 
-import adapter.SpinnerEmpresaAdapter;
-import dao.EmpresaDAO;
-import model.Empresa;
+import com.example.jeffe.adapter.SpinnerEmpresaAdapter;
+import com.example.jeffe.dao.EmpresaDAO;
+import com.example.jeffe.model.Empresa;
 
 public class MainActivity extends Activity {
 

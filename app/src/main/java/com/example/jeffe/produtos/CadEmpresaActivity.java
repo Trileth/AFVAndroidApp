@@ -11,12 +11,12 @@ package com.example.jeffe.produtos;
         import com.google.gson.Gson;
 
         import br.com.concretesolutions.canarinho.validator.Validador;
-        import dao.EmpresaDAO;
-        import model.Empresa;
-        import model.ViaCepEndereco;
-        import util.HTTPManager;
-        import util.Mask;
-        import util.Mensagem;
+        import com.example.jeffe.dao.EmpresaDAO;
+        import com.example.jeffe.model.Empresa;
+        import com.example.jeffe.model.ViaCepEndereco;
+        import com.example.jeffe.util.HTTPManager;
+        import com.example.jeffe.util.Mask;
+        import com.example.jeffe.util.Mensagem;
 
 
 public class CadEmpresaActivity extends Activity {
@@ -129,8 +129,6 @@ public class CadEmpresaActivity extends Activity {
     }
 
     private void cadastrar(){
-        boolean validacao = true;
-        
         String razao   =  edtRazao.getText().toString();
         String fantasia=  edtFantasia.getText().toString();
         String cnpj    =  edtCNPJ.getText().toString();
@@ -141,54 +139,8 @@ public class CadEmpresaActivity extends Activity {
         String endereco=  edtEndereco.getText().toString();
         String bairro  =  edtBairro.getText().toString();
         String cidade  =  edtCidade.getText().toString();
-
-        if (razao.equals("")){
-            validacao = false;
-            edtRazao.setError(getString(R.string.campo_obrigatorio));
-        }
-
-        if (fantasia.equals("")){
-            validacao = false;
-            edtFantasia.setError(getString(R.string.campo_obrigatorio));
-        }
-
-        if (cnpj.equals("")){
-            validacao = false;
-            edtCNPJ.setError(getString(R.string.campo_obrigatorio));
-        }
-
-        if (ie.equals("")){
-            validacao = false;
-            edtIe.setError(getString(R.string.campo_obrigatorio));
-        }
-
-        if (telefone.equals("")){
-            validacao = false;
-            edtTelefone.setError(getString(R.string.campo_obrigatorio));
-        }
-
-        if (numCep.equals("")){
-            validacao = false;
-            edtCep.setError(getString(R.string.campo_obrigatorio));
-        }
-
-        if (endereco.equals("")){
-            validacao = false;
-            edtEndereco.setError(getString(R.string.campo_obrigatorio));
-        }
-
-        if (bairro.equals("")){
-            validacao = false;
-            edtBairro.setError(getString(R.string.campo_obrigatorio));
-        }
-
-        if (cidade.equals("")){
-            validacao = false;
-            edtCidade.setError(getString(R.string.campo_obrigatorio));
-        }
-
-
-        if(validacao){
+        
+        if(validacao(razao, fantasia, cnpj, ie, telefone, numCep, endereco, bairro,  cidade  )){
             Empresa empresa = new Empresa();
             empresa.setRazao_social(razao);
             empresa.setNome_fantasia(fantasia);
@@ -216,11 +168,60 @@ public class CadEmpresaActivity extends Activity {
                 }
 
                 finish();
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, EmpresasActivity.class));
             }else{
                 Mensagem.Msg(this, getString(R.string.mensagem_erro));
             }
         }
+    }
+    private boolean validacao(String razao, String fantasia, String cnpj, String ie,
+                              String telefone, String numCep, String endereco,
+                              String bairro, String cidade){
+        if (razao.equals("")){
+            edtRazao.setError(getString(R.string.campo_obrigatorio));
+            return false;            
+        }
+
+        if (fantasia.equals("")){
+            edtFantasia.setError(getString(R.string.campo_obrigatorio));
+            return false;
+        }
+
+        if (cnpj.equals("")){
+            edtCNPJ.setError(getString(R.string.campo_obrigatorio));
+            return false;
+        }
+
+        if (ie.equals("")){
+            edtIe.setError(getString(R.string.campo_obrigatorio));
+            return false;
+        }
+
+        if (telefone.equals("")){
+            edtTelefone.setError(getString(R.string.campo_obrigatorio));
+            return false;
+        }
+
+        if (numCep.equals("")){
+            edtCep.setError(getString(R.string.campo_obrigatorio));
+            return false;
+        }
+
+        if (endereco.equals("")){
+            edtEndereco.setError(getString(R.string.campo_obrigatorio));
+            return false;
+        }
+
+        if (bairro.equals("")){
+            edtBairro.setError(getString(R.string.campo_obrigatorio));
+            return false;
+        }
+
+        if (cidade.equals("")){
+            edtCidade.setError(getString(R.string.campo_obrigatorio));
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -243,6 +244,10 @@ public class CadEmpresaActivity extends Activity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onSalvarClick(View view){
+        this.cadastrar();
     }
 
     private ViaCepEndereco retornaEndereco(String numCep) throws Exception {

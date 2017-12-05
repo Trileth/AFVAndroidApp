@@ -1,4 +1,4 @@
-package dao;
+package com.example.jeffe.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.TipoComplemento;
+import com.example.jeffe.model.TipoComplemento;
 
 public class TipoComplementoDAO {
 
