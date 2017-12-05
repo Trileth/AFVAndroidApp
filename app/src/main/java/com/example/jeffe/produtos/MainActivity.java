@@ -10,22 +10,15 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Spinner;
 
-import com.google.gson.Gson;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import adapter.SpinnerEmpresaAdapter;
 import dao.EmpresaDAO;
 import model.Empresa;
-import model.ViaCepEndereco;
-import util.HTTPManager;
-
 
 public class MainActivity extends Activity {
 
     private EmpresaDAO helper =  new EmpresaDAO(this);
-    private List<Empresa> listaEmp = new ArrayList<>();
     private Spinner spinner;
 
     @Override
@@ -36,13 +29,19 @@ public class MainActivity extends Activity {
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         setContentView(R.layout.activity_main);
 
-        listaEmp = helper.listarEmpresas();
+        configSpinnerEmpresas();
+
+    }
+
+    private void configSpinnerEmpresas() {
+        List<Empresa> listaEmp = helper.listarEmpresas();
         Empresa[] empArr = listaEmp.toArray(new Empresa[listaEmp.size()]);
         spinner = findViewById(R.id.empresa_spinner);
         SpinnerEmpresaAdapter spinnerArrayAdapter = new SpinnerEmpresaAdapter(this, android.R.layout.simple_spinner_dropdown_item, empArr);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spinner.setAdapter(spinnerArrayAdapter);
     }
+
     public void onConfirmarClick(View view) {
         getWindow().setExitTransition(new Explode());
         Empresa empresaSelecionada = (Empresa) spinner.getSelectedItem();

@@ -49,10 +49,10 @@ public class EmpresaAdapter extends BaseAdapter {
             view = inflater.inflate(R.layout.empresas, null);
         }
 
-        TextView txtNome = (TextView) view.findViewById(R.id.empresa_lista_nome);
-        txtNome.setText("Desc: "+empresa.getRazao_social());
-        TextView txtApelido = (TextView) view.findViewById(R.id.empresa_lista_cidade);
-        txtApelido.setText("Apel: "+empresa.getCidade());
+        TextView txtNome = view.findViewById(R.id.empresa_lista_nome);
+        txtNome.setText("Razão Social: "+empresa.getRazao_social());
+        TextView txtApelido = view.findViewById(R.id.empresa_lista_cidade);
+        txtApelido.setText("Cidade: "+empresa.getCidade());
 
         return view;
     }

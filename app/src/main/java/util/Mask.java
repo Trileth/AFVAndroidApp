@@ -4,8 +4,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 
-// classe importada da internet
-
 public abstract class Mask {
 
     public enum MaskType {

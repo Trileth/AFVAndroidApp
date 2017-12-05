@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import adapter.SpinnerGrupoAdapter;
@@ -27,13 +26,11 @@ public class CadProduto2Activity extends Activity {
     private ProdutoDAO produtoDAO;
     private Produto produto;
     private GrupoProdutoDAO grupoDAO;
-    private List<GrupoProduto> listagrupos = new ArrayList<GrupoProduto>();
     private int idproduto;
     private String descricao;
     private String situacao;
     private int grupo;
     private int empresa;
-    private Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +43,12 @@ public class CadProduto2Activity extends Activity {
     }
 
     private void carregaValores() {
-        edtApelido = (EditText) findViewById(R.id.produto_edtApelido);
-        edtPeso = (EditText) findViewById(R.id.produto_edtPeso);
-        edtClassificacao = (EditText) findViewById(R.id.produto_edtClassificacao);
+        edtApelido = findViewById(R.id.produto_edtApelido);
+        edtPeso = findViewById(R.id.produto_edtPeso);
+        edtClassificacao = findViewById(R.id.produto_edtClassificacao);
         configSpinnerGrupo();
 
-        bundle = getIntent().getBundleExtra("produtoBundle");
+        Bundle bundle = getIntent().getBundleExtra("produtoBundle");
         //Modo de edição
         idproduto = bundle.getInt("produtoId",0);
         if(idproduto > 0){
@@ -69,8 +66,8 @@ public class CadProduto2Activity extends Activity {
 
     private void configSpinnerGrupo(){
         //Configurando Spinner Grupo
-        spnSubgrupo = (Spinner) findViewById(R.id.produto_spnSubgrupo);
-        listagrupos = grupoDAO.listarGrupoProduto();
+        spnSubgrupo = findViewById(R.id.produto_spnSubgrupo);
+        List<GrupoProduto> listagrupos = grupoDAO.listarGrupoProduto();
         GrupoProduto[] grupoArr = listagrupos.toArray(new GrupoProduto[listagrupos.size()]);
         SpinnerGrupoAdapter arrayAdapter = new SpinnerGrupoAdapter(this,
                 android.R.layout.simple_spinner_dropdown_item, grupoArr);

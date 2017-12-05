@@ -24,9 +24,8 @@ public class CadProdutoActivity extends Activity {
     private EditText  edtDescricao_produto,edtSituacao_produto ;
     private Spinner spnGrupo_produto;
     private ProdutoDAO produtoDAO;
-    private Produto produto;
     private GrupoProdutoDAO grupoDAO;
-    private List<GrupoProduto> listagrupos = new ArrayList<GrupoProduto>();
+    private List<GrupoProduto> listagrupos = new ArrayList<>();
     private int idproduto;
 
     @Override
@@ -37,14 +36,14 @@ public class CadProdutoActivity extends Activity {
         produtoDAO = new ProdutoDAO(this);
         grupoDAO = new GrupoProdutoDAO(this);
 
-        edtDescricao_produto = (EditText) findViewById(R.id.produto_edtDescricao);
-        spnGrupo_produto = (Spinner) findViewById(R.id.produto_spnGrupo);
-        edtSituacao_produto = (EditText) findViewById(R.id.produto_edtSituacao);
+        edtDescricao_produto =  findViewById(R.id.produto_edtDescricao);
+        spnGrupo_produto =  findViewById(R.id.produto_spnGrupo);
+        edtSituacao_produto = findViewById(R.id.produto_edtSituacao);
 
         //Configurando Spinner Grupo
         listagrupos = grupoDAO.listarGrupoProduto();
         GrupoProduto[] grupoArr = listagrupos.toArray(new GrupoProduto[listagrupos.size()]);
-        Spinner spinner = (Spinner) findViewById(R.id.produto_spnGrupo);
+        Spinner spinner = findViewById(R.id.produto_spnGrupo);
         SpinnerGrupoAdapter spinnerArrayAdapter = new SpinnerGrupoAdapter(this,
                 android.R.layout.simple_spinner_dropdown_item, grupoArr);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
@@ -74,12 +73,12 @@ public class CadProdutoActivity extends Activity {
         String situacao =  edtSituacao_produto.getText().toString();
         GrupoProduto grupoSelecionado = (GrupoProduto) spnGrupo_produto.getSelectedItem();
 
-        if (descricao == null || descricao.equals("")){
+        if (descricao.equals("")){
             validacao = false;
             edtDescricao_produto.setError(getString(R.string.campo_obrigatorio));
         }
 
-        if (situacao == null || situacao.equals("")){
+        if (situacao.equals("")){
             validacao = false;
             edtSituacao_produto.setError(getString(R.string.campo_obrigatorio));
         }

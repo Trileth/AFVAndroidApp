@@ -5,8 +5,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.widget.Toast;
 
-import com.example.jeffe.produtos.R;
-
 public class Mensagem {
 
     public static void Msg(Activity activity, String msg){

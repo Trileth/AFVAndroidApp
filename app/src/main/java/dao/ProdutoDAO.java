@@ -46,7 +46,7 @@ public class ProdutoDAO {
 
     public List<Produto> listarProdutos(int emp,String ordem,String busca,int pagina){
         busca = busca.toUpperCase();
-        String query = new String();
+        String query = "";
         query =   " fk_empresa = ? and (UPPER(cod_produto) like '%"+busca+"%' or "+
                   " UPPER(fk_empresa) like '%"+busca+"%' or "+
                   " UPPER(fk_grupo_produto) like '%"+busca+"%' or "+
@@ -76,8 +76,7 @@ public class ProdutoDAO {
 
     public int contarProdutos(int emp,String busca){
         busca = busca.toUpperCase();
-        String query = new String();
-        query =   " fk_empresa = ? and (UPPER(cod_produto) like '%"+busca+"%' or "+
+        String query =   " fk_empresa = ? and (UPPER(cod_produto) like '%"+busca+"%' or "+
                 " UPPER(fk_empresa) like '%"+busca+"%' or "+
                 " UPPER(fk_grupo_produto) like '%"+busca+"%' or "+
                 " UPPER(fk_subgrupo_produto) like '%"+busca+"%' or "+

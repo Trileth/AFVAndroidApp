@@ -28,7 +28,6 @@ public class ProdutosActivity extends Activity implements
 
     private ListView lista;
     private List<Produto> produtoList;
-    private ProdutoAdapter produtoAdapter;
     private ProdutoDAO produtoDAO;
     private Button btnProx;
     private Button btnAnte;
@@ -62,7 +61,7 @@ public class ProdutosActivity extends Activity implements
     }
 
     private void configSpinnerProduto() {
-        Spinner spinner = (Spinner) findViewById(R.id.produto_spinner);
+        Spinner spinner = findViewById(R.id.produto_spinner);
         ArrayAdapter<CharSequence> adapterSpinner = ArrayAdapter.createFromResource(this,
                 R.array.filtroProdutos, android.R.layout.simple_spinner_item);
         adapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -73,14 +72,13 @@ public class ProdutosActivity extends Activity implements
             }
 
             public void onNothingSelected(AdapterView<?> adapterView) {
-                return;
             }
         });
     }
 
     private void carregaListaProdutos(int order, String busca){
         produtoDAO     = new ProdutoDAO(this);
-        String ordem = new String();
+        String ordem = "";
         if (order == 0) { ordem = "descricao_produto"; }
         else
         if (order == 1) { ordem = "cod_produto"; }
@@ -88,7 +86,7 @@ public class ProdutosActivity extends Activity implements
         empresa = getIntent().getIntExtra("emp",1);
         produtoList    = produtoDAO.listarProdutos(empresa,ordem,busca,pagina);
         qntdProdutosTotal = produtoDAO.contarProdutos(empresa,busca);
-        produtoAdapter = new ProdutoAdapter(this, produtoList);
+        ProdutoAdapter produtoAdapter = new ProdutoAdapter(this, produtoList);
 
         if(produtoList.size() > 0) {
             lista = findViewById(R.id.listaProdutos);
@@ -138,7 +136,7 @@ public class ProdutosActivity extends Activity implements
             btnProx.setVisibility(View.VISIBLE);
         }
 
-        txtPag.setText("Página: "+String.valueOf(pagina+1));
+        txtPag.setText(String.format("Página: %s", String.valueOf(pagina + 1)));
     }
 
     //Menu

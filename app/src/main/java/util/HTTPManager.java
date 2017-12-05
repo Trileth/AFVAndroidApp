@@ -8,12 +8,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-/**
- * Created by jeffe on 04/12/2017.
- */
 
 public class HTTPManager {
 

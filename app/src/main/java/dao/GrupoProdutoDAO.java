@@ -51,22 +51,6 @@ public class GrupoProdutoDAO {
         cursor.close();
         return gruposprodutos;
     }
-    public List<String> listarDescricao() {
-        Cursor cursor = getDatabase().query(DatabaseHelper.GruposProdutos.TABELA,
-                new String[]{DatabaseHelper.GruposProdutos._ID,DatabaseHelper.GruposProdutos.DESCRICAO}, null,
-                null, null, null, null, null
-        );
-
-        List<String> grupos = new ArrayList<>();
-        while (cursor.moveToNext()){
-            grupos.add(cursor.getString(cursor.getColumnIndex(DatabaseHelper.GruposProdutos._ID))+","+
-                    cursor.getString(cursor.getColumnIndex(DatabaseHelper.GruposProdutos.DESCRICAO)));
-        }
-
-        cursor.close();
-        return grupos;
-    }
-
 
     public long salvarGrupoProduto(GrupoProduto gruposprodutos){
         ContentValues valores = new ContentValues();

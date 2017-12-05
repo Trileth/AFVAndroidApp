@@ -50,7 +50,7 @@ public class EmpresaDAO {
                                            null,null,null,null,null
                                             );
 
-        List<Empresa> empresas = new ArrayList<Empresa>();
+        List<Empresa> empresas = new ArrayList<>();
         while(cursor.moveToNext()){
             Empresa model = criarEmpresa(cursor);
             empresas.add(model);
@@ -77,7 +77,7 @@ public class EmpresaDAO {
 
         if(empresa.get_id() != null){
             return database.update(DatabaseHelper.Empresas.TABELA, valores,
-                    "_id = ?", new String[]{ empresa.get_id().toString()} );
+                    "cod_empresa = ?", new String[]{ empresa.get_id().toString()} );
         }
 
         return getDatabase().insert(DatabaseHelper.Empresas.TABELA,null, valores);
@@ -85,12 +85,12 @@ public class EmpresaDAO {
 
     public boolean removerEmpresa(int id){
         return getDatabase().delete(DatabaseHelper.Empresas.TABELA,
-                "_id = ?", new String[]{ Integer.toString(id)}) > 0 ;
+                "cod_empresa = ?", new String[]{ Integer.toString(id)}) > 0 ;
     }
 
     public Empresa buscarEmpresaPorId(int id){
         Cursor cursor = getDatabase().query(DatabaseHelper.Empresas.TABELA,
-                DatabaseHelper.Empresas.COLUNAS, "_id = ?", new String[]{ Integer.toString(id)},null,null,null);
+                DatabaseHelper.Empresas.COLUNAS, "cod_empresa = ?", new String[]{ Integer.toString(id)},null,null,null);
 
         if(cursor.moveToNext()){
            Empresa model = criarEmpresa(cursor);

@@ -50,9 +50,9 @@ public class ProdutoAdapter extends BaseAdapter {
             view = inflater.inflate(R.layout.produtos, null);
         }
 
-        TextView txtNome = (TextView) view.findViewById(R.id.produto_lista_nome);
+        TextView txtNome = view.findViewById(R.id.produto_lista_nome);
         txtNome.setText("Desc: "+produto.getDescricao());
-        TextView txtApelido = (TextView) view.findViewById(R.id.produto_lista_apelido);
+        TextView txtApelido = view.findViewById(R.id.produto_lista_apelido);
         txtApelido.setText("Apel: "+produto.getApelido());
 
         return view;

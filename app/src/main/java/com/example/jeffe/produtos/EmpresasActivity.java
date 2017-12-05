@@ -25,7 +25,6 @@ public class EmpresasActivity extends Activity implements
 
     private ListView lista;
     private List<Empresa> empresaList;
-    private EmpresaAdapter empresaAdapter;
     private EmpresaDAO empresaDAO;
 
     private int idposicao;
@@ -51,7 +50,7 @@ public class EmpresasActivity extends Activity implements
 
         empresa = getIntent().getIntExtra("emp",1);
         empresaList    = empresaDAO.listarEmpresas();
-        empresaAdapter = new EmpresaAdapter(this, empresaList);
+        EmpresaAdapter empresaAdapter = new EmpresaAdapter(this, empresaList);
 
         if(empresaList.size() > 0) {
             lista = findViewById(R.id.listaEmpresas);
